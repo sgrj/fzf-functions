@@ -11,7 +11,7 @@ function pr-checkout
   set -l pr_number (
     gh api 'repos/:owner/:repo/pulls' |
     jq ".[] | $jq_template" |
-    sed -e 's/"\(.*\)"/\1/' -e 's/\\t/\t/' |
+    sed -e 's/"\(.*\)"/\1/' -e 's/\\\\t/\t/' |
     fzf \
       --with-nth=1 \
       --delimiter='\t' \

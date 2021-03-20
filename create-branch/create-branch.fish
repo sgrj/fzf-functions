@@ -25,7 +25,7 @@ function create-branch
       --compressed \
       'https://jira.example.com/rest/api/2/search' |
     jq ".issues[] | $jq_template" |
-    sed -e 's/"\(.*\)"/\1/' -e 's/\\t/\t/' |
+    sed -e 's/"\(.*\)"/\1/' -e 's/\\\\t/\t/' |
     fzf \
       --with-nth=1 \
       --delimiter='\t' \
